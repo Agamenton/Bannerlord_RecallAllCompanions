@@ -11,7 +11,6 @@ using SandBox.View.Map;
 
 namespace RecallAllCompanions
 {
-
     public class SubModule : MBSubModuleBase
     {
         protected override void OnSubModuleLoad()
@@ -86,7 +85,8 @@ namespace RecallAllCompanions
                 }
                 hero.ChangeState(Hero.CharacterStates.Released); // does nothing?
 
-                AddHeroToPartyAction.Apply(hero, Hero.MainHero.PartyBelongedTo, true); // moves hero to player's party instantly
+                //AddHeroToPartyAction.Apply(hero, Hero.MainHero.PartyBelongedTo, true); // moves hero to player's party instantly
+                TeleportHeroAction.ApplyDelayedTeleportToParty(hero, Hero.MainHero.PartyBelongedTo); // teleports hero to player's party after some time
 
                 hero.UpdateLastKnownClosestSettlement(null);  // does nothing?
                 hero.ChangeState(Hero.CharacterStates.Active);  // does nothing?
